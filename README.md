@@ -1,2 +1,3 @@
 # css
-Opinionated CSS styleguide
+
+*Opinionated CSS styleguide for scalable applications*
