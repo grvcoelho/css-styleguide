@@ -28,11 +28,11 @@ In a rule declaration, “selectors” are the bits that determine which element
 
 ```css
 .avatar {
-  /* ... */
+  font-size: 20px;
 }
 
 #id {
-  /* ... */
+  font-size: 20px;
 }
 ```
 
@@ -41,7 +41,7 @@ In a rule declaration, “selectors” are the bits that determine which element
 Finally, properties are what give the selected elements of a rule declaration their style. Properties are key-value pairs, and a rule declaration can contain one or more property declarations. Property declarations look like this:
 
 ```css
-/* some selector */ {
+.some-selector {
   background: #f1f1f1;
   color: #333;
 }
