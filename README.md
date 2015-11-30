@@ -5,9 +5,9 @@
 ## Table of Contents
 
   1. [Terminology](#terminology)
-    - [Rule Declaration](#rule-declaration)
-    - [Selectors](#selectors)
-    - [Properties](#properties)
+    1. [Rule Declaration](#rule-declaration)
+    1. [Selectors](#selectors)
+    1. [Properties](#properties)
 
 ## Terminology
 
