@@ -46,3 +46,7 @@ Finally, properties are what give the selected elements of a rule declaration th
   color: #333;
 }
 ```
+
+## License
+
+[MIT](https://github.com/grvcoelho/css/blob/master/LICENSE) &copy; 2015
