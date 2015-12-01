@@ -8,6 +8,10 @@
     1. [Rule Declaration](#rule-declaration)
     1. [Selectors](#selectors)
     1. [Properties](#properties)
+  1. [Formatting] (#formatting)
+    1. [Spacing] (#spacing)
+    2. [Quotes] (#quotes)
+    3. [Comments] (#comments)
 
 ## Terminology
 
@@ -130,6 +134,48 @@ Declaration should be separated by two new lines:
 
 .tweet {
   letter-spacing: 2px;
+}
+```
+
+### Quotes
+
+Quotes are optional in CSS. You should use single quotes as it is visually clearer that the string is not a selector or a style property.
+
+```css
+/* wrong */
+.avatar {
+  background-image: url('/img/you.jpg');
+  font-family: 'Helvetica Neue Light', Helvetica Neue, Helvetica, Arial;
+}
+```
+
+```css
+/* right */
+.avatar {
+  background-image: url(/img/you.jpg);
+  font-family: Helvetica Neue Light, Helvetica Neue, Helvetica, Arial;
+}
+```
+
+### Comments
+
+Avoid comments as hard as you can. Comments are not easily mantainable and are usually used to supress application design mistakes. Leave comments only to things that are **really** not straightforward such as browser-specific hacks. Put comments on their own lines to describe content below them.
+
+```css
+/* wrong */
+.avatar {
+  height: 200px; /* this is the height of the container*/
+  background-color: red; /* brand color */
+}
+```
+
+```css
+/* right */
+.avatar {
+  height: 20px;
+  
+  /* this is a hack to fix click behavior on Safari 6.0 */
+  pointer-events: none;
 }
 ```
 
