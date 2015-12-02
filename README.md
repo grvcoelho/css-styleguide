@@ -12,6 +12,11 @@
     1. [Spacing] (#spacing)
     2. [Quotes] (#quotes)
     3. [Comments] (#comments)
+  1. [Syntax] (#syntax)
+    1. [Components] (#components)
+    1. [Descendants] (#descendants)
+    1. [Modifiers] (#modifiers)
+    1. [States] (#states)
 
 ## Terminology
 
@@ -177,6 +182,94 @@ Avoid comments as hard as you can. Comments are not easily mantainable and are u
   /* this is a hack to fix click behavior on Safari 6.0 */
   pointer-events: none;
 }
+```
+
+## Syntax
+
+Syntax: `<componentName>[--modifierName|-descendantName]`
+
+Component driven development offers several benefits when reading and writing HTML and CSS:
+
+* It helps to distinguish between the classes for the root of the component, descendant elements, and modifications.
+* It keeps the specificity of selectors low.
+* It helps to decouple presentation semantics from document semantics.
+
+You can think of components as custom elements that enclose specific semantics, styling, and behaviour.
+
+### Components 
+
+Syntax: `componentName`
+
+The component's name must be written in camel case.
+
+```css
+.myComponent {
+  font-size: 20px;
+}
+```
+
+```html
+<article class="myComponent"></article>
+```
+
+### Descendants
+
+Syntax: `componentName-descendantName`
+
+A component descendant is a class that is attached to a descendant node of a component. It's responsible for applying presentation directly to the descendant on behalf of a particular component. Descendant names must be written in camel case.
+
+```html
+<article class="tweet">
+  <header class="tweet-header">
+    <img class="tweet-avatar" src="{$src}" alt="{$alt}">
+    …
+  </header>
+  <div class="tweet-body">
+    …
+  </div>
+</article>
+```
+
+### Modifiers
+
+Syntax: `componentName--modifierName`
+
+A component modifier is a class that modifies the presentation of the base component in some form. Modifier names must be written in camel case and be separated from the component name by two hyphens. The class should be included in the HTML _in addition_ to the base component class.
+
+```css
+.btn {
+  padding: 20px 10px;
+}
+
+.btn--primary { 
+  background: rgb(148,146,231);
+}
+```
+
+```html
+<button class="btn btn--primary">…</button>
+```
+
+### States
+
+Syntax: `componentName.is-stateOfComponent`
+
+Use `is-stateName` for state-based modifications of components. The state name must be Camel case. **Never style these classes directly; they should always be used as an adjoining class.**
+
+JS can add/remove these classes. This means that the same state names can be used in multiple contexts, but every component must define its own styles for the state (as they are scoped to the component).
+
+```css
+.tweet { 
+  height: 90px;
+}
+
+.tweet.is-expanded { 
+  height: 200px;
+}
+```
+
+```html
+<article class="tweet is-expanded"></article>
 ```
 
 ## License
