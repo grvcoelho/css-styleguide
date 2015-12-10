@@ -27,7 +27,7 @@ The following are some terms used throughout this styleguide.
 
 A “rule declaration” is the name given to a selector (or a group of selectors) with an accompanying group of properties. Here's an example:
 
-```css
+```sass
 .avatar {
   font-size: 18px;
   line-height: 1.2;
@@ -38,7 +38,7 @@ A “rule declaration” is the name given to a selector (or a group of selector
 
 In a rule declaration, “selectors” are the bits that determine which elements in the DOM tree will be styled by the defined properties. Selectors can match HTML elements, as well as an element's class, ID, or any of its attributes. Here are some examples of selectors:
 
-```css
+```sass
 .avatar {
   font-size: 20px;
 }
@@ -52,7 +52,7 @@ In a rule declaration, “selectors” are the bits that determine which element
 
 Finally, properties are what give the selected elements of a rule declaration their style. Properties are key-value pairs, and a rule declaration can contain one or more property declarations. Property declarations look like this:
 
-```css
+```sass
 .avatar {
   background: #f1f1f1;
   color: #333;
@@ -67,14 +67,14 @@ The following are some high level page formatting style rules.
 
 CSS rules should be comma separated and leave on a new line:
 
-```css
+```sass
 /* wrong */
 .avatar, .tweet {
 
 }
 ```
 
-```css
+```sass
 /* right */
 .avatar, 
 .tweet {
@@ -84,7 +84,7 @@ CSS rules should be comma separated and leave on a new line:
 
 Properties should use a space after `:` but not before:
 
-```css
+```sass
 /* wrong */
 .avatar {
   font-size : 12px;
@@ -95,7 +95,7 @@ Properties should use a space after `:` but not before:
 }
 ```
 
-```css
+```sass
 /* right */
 .avatar {
   font-size: 12px;
@@ -105,14 +105,14 @@ Properties should use a space after `:` but not before:
 
 Rule declarations should have one property per line:
 
-```css
+```sass
 /* wrong */
 .avatar {
   font-size: 12px; letter-spacing: 2px;
 }
 ```
 
-```css
+```sass
 /* right */
 .avatar {
   font-size: 12px; 
@@ -122,7 +122,7 @@ Rule declarations should have one property per line:
 
 Declaration should be separated by two new lines:
 
-```css
+```sass
 /* wrong */
 .avatar {
   font-size: 12px;
@@ -132,7 +132,7 @@ Declaration should be separated by two new lines:
 }
 ```
 
-```css
+```sass
 /* right */
 .avatar {
   font-size: 12px;
@@ -143,11 +143,71 @@ Declaration should be separated by two new lines:
 }
 ```
 
+### Nesting
+
+Do not nest elements. Keep nesting to pseudo-classes and direct interactions with the parent element. Although nesting is a powerful feature provided by several preprocessors and plugins, it can easily get out of control and generate a terrible css ouput with high specificity or spoil the code legibility.
+
+```sass
+/* wrong */
+.avatar {
+  font-size: 12px;
+  
+  &:hover {
+    font-size: 11px;
+  }
+  
+  &__link {
+    color: blue;
+  }
+
+  &__photo {
+    height: 20px;
+  }
+}
+```
+
+```sass
+/* right */
+.avatar {
+  font-size: 12px;
+  
+  &:hover {
+    font-size: 11px;
+  }
+}
+
+.avatar__link {
+  color: blue;
+}
+
+.avatar__photo {
+  height: 20px;
+}
+```
+
+Nesting can also be used to when an element is dependent of a parent's modifier. This helps to keep all code related to an element on the same block.
+
+```sass
+.avatar {
+  font-size: 12px;
+}
+
+.avatar__photo {
+  height: 20px;
+  
+  .avatar--big & {
+    height: 40px;
+  }
+}
+
+
+```
+
 ### Quotes
 
 Quotes are optional in CSS. You should use single quotes as it is visually clearer that the string is not a selector or a style property.
 
-```css
+```sass
 /* wrong */
 .avatar {
   background-image: url('/img/you.jpg');
@@ -155,7 +215,7 @@ Quotes are optional in CSS. You should use single quotes as it is visually clear
 }
 ```
 
-```css
+```sass
 /* right */
 .avatar {
   background-image: url(/img/you.jpg);
@@ -167,7 +227,7 @@ Quotes are optional in CSS. You should use single quotes as it is visually clear
 
 Avoid comments as hard as you can. Comments are not easily mantainable and are usually used to supress application design mistakes. Leave comments only to things that are **really** not straightforward such as browser-specific hacks. Put comments on their own lines to describe content below them.
 
-```css
+```sass
 /* wrong */
 .avatar {
   height: 200px; /* this is the height of the container*/
@@ -175,7 +235,7 @@ Avoid comments as hard as you can. Comments are not easily mantainable and are u
 }
 ```
 
-```css
+```sass
 /* right */
 .avatar {
   height: 20px;
@@ -203,7 +263,7 @@ Syntax: `componentName`
 
 The component's name must be written in camel case.
 
-```css
+```sass
 .myComponent {
   font-size: 20px;
 }
@@ -237,7 +297,7 @@ Syntax: `componentName--modifierName`
 
 A component modifier is a class that modifies the presentation of the base component in some form. Modifier names must be written in camel case and be separated from the component name by two hyphens. The class should be included in the HTML _in addition_ to the base component class.
 
-```css
+```sass
 .btn {
   padding: 20px 10px;
 }
@@ -259,7 +319,7 @@ Use `is-stateName` for state-based modifications of components. The state name m
 
 JS can add/remove these classes. This means that the same state names can be used in multiple contexts, but every component must define its own styles for the state (as they are scoped to the component).
 
-```css
+```sass
 .tweet { 
   height: 90px;
 }
@@ -276,3 +336,4 @@ JS can add/remove these classes. This means that the same state names can be use
 ## License
 
 [MIT](https://github.com/grvcoelho/css/blob/master/LICENSE) &copy; 2015
+
