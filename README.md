@@ -247,7 +247,7 @@ Avoid comments as hard as you can. Comments are not easily mantainable and are u
 
 ## Syntax
 
-Syntax: `<componentName>[--modifierName|-descendantName]`
+Syntax: `<component-name>[--modifier-name|__descendant-name]`
 
 Component driven development offers several benefits when reading and writing HTML and CSS:
 
@@ -259,33 +259,33 @@ You can think of components as custom elements that enclose specific semantics, 
 
 ### Components 
 
-Syntax: `componentName`
+Syntax: `component-name`
 
-The component's name must be written in camel case.
+The component's name must be written in kebab case.
 
 ```sass
-.myComponent {
+.my-component {
   font-size: 20px;
 }
 ```
 
 ```html
-<article class="myComponent"></article>
+<article class="my-component"></article>
 ```
 
 ### Descendants
 
-Syntax: `componentName-descendantName`
+Syntax: `component-name__descendant-name`
 
-A component descendant is a class that is attached to a descendant node of a component. It's responsible for applying presentation directly to the descendant on behalf of a particular component. Descendant names must be written in camel case.
+A component descendant is a class that is attached to a descendant node of a component. It's responsible for applying presentation directly to the descendant on behalf of a particular component. Descendant names must be written in kebab case.
 
 ```html
 <article class="tweet">
-  <header class="tweet-header">
-    <img class="tweet-avatar" src="{$src}" alt="{$alt}">
+  <header class="tweet__header">
+    <img class="tweet__avatar" src="{$src}" alt="{$alt}">
     …
   </header>
-  <div class="tweet-body">
+  <div class="tweet__body">
     …
   </div>
 </article>
@@ -293,9 +293,9 @@ A component descendant is a class that is attached to a descendant node of a com
 
 ### Modifiers
 
-Syntax: `componentName--modifierName`
+Syntax: `component-name--modifier-name`
 
-A component modifier is a class that modifies the presentation of the base component in some form. Modifier names must be written in camel case and be separated from the component name by two hyphens. The class should be included in the HTML _in addition_ to the base component class.
+A component modifier is a class that modifies the presentation of the base component in some form. Modifier names must be written in kebab case and be separated from the component name by two hyphens. The class should be included in the HTML _in addition_ to the base component class.
 
 ```sass
 .btn {
@@ -313,9 +313,9 @@ A component modifier is a class that modifies the presentation of the base compo
 
 ### States
 
-Syntax: `componentName.is-stateOfComponent`
+Syntax: `component-name.is-state-of-component`
 
-Use `is-stateName` for state-based modifications of components. The state name must be Camel case. **Never style these classes directly; they should always be used as an adjoining class.**
+Use `is-stateName` for state-based modifications of components. The state name must be kebab case. **Never style these classes directly; they should always be used as an adjoining class.**
 
 JS can add/remove these classes. This means that the same state names can be used in multiple contexts, but every component must define its own styles for the state (as they are scoped to the component).
 
