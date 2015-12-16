@@ -54,8 +54,8 @@ Finally, properties are what give the selected elements of a rule declaration th
 
 ```sass
 .avatar {
-  background: #f1f1f1;
-  color: #333;
+  background: rgb(255,255,255);
+  color: rgb(33,33,33);
 }
 ```
 
@@ -157,7 +157,7 @@ Do not nest elements. Keep nesting to pseudo-classes and direct interactions wit
   }
   
   &__link {
-    color: blue;
+    color: rgb(210,210,22);
   }
 
   &__photo {
@@ -177,7 +177,7 @@ Do not nest elements. Keep nesting to pseudo-classes and direct interactions wit
 }
 
 .avatar__link {
-  color: blue;
+  color: rgb(210,22,221);
 }
 
 .avatar__photo {
@@ -199,8 +199,6 @@ Nesting can also be used to when an element is dependent of a parent's modifier.
     height: 40px;
   }
 }
-
-
 ```
 
 ### Quotes
@@ -231,7 +229,7 @@ Avoid comments as hard as you can. Comments are not easily mantainable and are u
 /* wrong */
 .avatar {
   height: 200px; /* this is the height of the container*/
-  background-color: red; /* brand color */
+  background-color: rgb(221,33,21); /* brand color */
 }
 ```
 
