@@ -208,17 +208,18 @@ Quotes are optional in CSS. You should use single quotes as it is visually clear
 ```sass
 /* wrong */
 .avatar {
-  background-image: url('/img/you.jpg');
-  font-family: 'Helvetica Neue Light', Helvetica Neue, Helvetica, Arial;
+  background-image: url(/img/you.jpg);
+  font-family: Helvetica Neue Light, Helvetica Neue, Helvetica, Arial;
 }
 ```
 
 ```sass
 /* right */
 .avatar {
-  background-image: url(/img/you.jpg);
-  font-family: Helvetica Neue Light, Helvetica Neue, Helvetica, Arial;
+  background-image: url('/img/you.jpg');
+  font-family: 'Helvetica Neue Light', Helvetica Neue, Helvetica, Arial;
 }
+
 ```
 
 ### Comments
