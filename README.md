@@ -2,7 +2,7 @@
 
 *Opinionated CSS styleguide for scalable applications*
 
-This guide was heavily inspired by experiments, awesome people like [@fat](https://github.com/fat) and [@necolas](https://github.com/necolas) awesome projects made by [Google](https://github.com/google), [Airbnb](https://github.com/airbnb) and [Medium](https://github.com/medium).
+This guide was heavily inspired by experiments, awesome people like [@fat](https://github.com/fat) and [@necolas](https://github.com/necolas) and awesome projects made by [Google](https://github.com/google), [Airbnb](https://github.com/airbnb) and [Medium](https://github.com/medium).
 
 ## Table of Contents
 
