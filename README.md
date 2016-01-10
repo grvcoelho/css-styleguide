@@ -336,5 +336,5 @@ JS can add/remove these classes. This means that the same state names can be use
 
 ## License
 
-[MIT](https://github.com/grvcoelho/css/blob/master/LICENSE) &copy; 2015
+[MIT](https://github.com/grvcoelho/css/blob/master/LICENSE) &copy; 2016
 
